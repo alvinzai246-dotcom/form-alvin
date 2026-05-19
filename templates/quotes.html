@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quotes</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 50px; background: #e8f5e9; }
+       .quote-box { background: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h2 { color: #2e7d32; }
+        button { background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 10px; }
+        button:hover { background: #45a049; }
+        #closeBtn { background: #f44336; }
+        #closeBtn:hover { background: #d32f2f; }
+    </style>
+</head>
+<body>
+    <div class="quote-box">
+        <h2>Terima kasih!</h2>
+        <p id="quote">"Data kamu udah berhasil dikirim. Semangat terus ya!"</p>
+        <button id="openBtn">Tampilkan Quotes Lain</button>
+        <button id="closeBtn" style="display:none;">Tutup</button>
+    </div>
+
+    <script>
+        const quotes = [
+            "Kesuksesan dimulai dari langkah kecil hari ini.",
+            "Jangan berhenti ketika lelah, berhenti ketika selesai.",
+            "Setiap baris kode membawa kamu lebih dekat ke tujuan."
+        ];
+        const quoteEl = document.getElementById('quote');
+        const openBtn = document.getElementById('openBtn');
+        const closeBtn = document.getElementById('closeBtn');
+
+        openBtn.onclick = () => {
+            const random = Math.floor(Math.random() * quotes.length);
+            quoteEl.innerText = quotes[random];
+            closeBtn.style.display = 'inline-block';
+        };
+        closeBtn.onclick = () => {
+            window.location.href = '/';
+        };
+    </script>
+</body>
+</html>
